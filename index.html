@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WECLO</title>
+  <style>
+    :root{
+      --gap:56px;            /* 左右列间距 */
+      --side-pad:48px;       /* 右侧内边距 */
+      --nav-bottom:46px;     /* 导航到底部“Clothing”的距离 */
+      --h2:28px;             /* “Clothing”字号 */
+      --item:22px;           /* 列表字号 */
+      --line:34px;           /* 列表行高 */
+      --max-left:420px;      /* 左侧图片最大宽度（接近你图里的比例） */
+    }
+
+    html,body{margin:0; background:#fff; font-family: Arial, Helvetica, sans-serif;}
+    .wrap{
+      max-width:1200px;
+      margin: 32px auto 64px;
+      padding: 0 24px;
+      display:grid;
+      grid-template-columns: minmax(280px, var(--max-left)) 1fr;
+      column-gap: var(--gap);
+      align-items: start;
+    }
+
+    /* 左侧模特图 */
+    .left img{
+      width:100%;
+      height:auto;
+      display:block;
+    }
+
+    /* 右侧：上方是导航图，下面是标签 */
+    .right{
+      padding-right: var(--side-pad);
+    }
+    .nav{
+      margin-bottom: var(--nav-bottom);
+    }
+    .nav img{
+      display:block;
+      max-width: 520px;   /* 导航宽度视觉上和示例接近 */
+      width:100%;
+      height:auto;
+    }
+
+    .menu h2{
+      font-size: var(--h2);
+      margin: 0 0 18px 0;
+      font-weight: bold;
+    }
+    .menu a{
+      display:block;
+      font-size: var(--item);
+      line-height: var(--line);
+      text-decoration:none;
+      color:#000;
+      margin: 4px 0;
+    }
+    .menu a:hover{ text-decoration: underline; }
+
+    /* 小屏下堆叠显示 */
+    @media (max-width: 900px){
+      .wrap{
+        grid-template-columns: 1fr;
+      }
+      .right{ padding-right: 0; }
+      .nav img{ max-width: 100%; }
+      :root{
+        --gap:28px; --nav-bottom:28px; --h2:24px; --item:18px; --line:28px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <!-- 左边：222.png -->
+    <section class="left">
+      <img src="222.png" alt="Model">
+    </section>
+
+    <!-- 右边：上方 333.png 导航 + 下方可点击标签 -->
+    <section class="right">
+      <div class="nav">
+        <img src="333.png" alt="Navigation">
+      </div>
+
+      <div class="menu">
+  <h2>Clothing</h2>
+  <a href="tops.html">Tops and T-Shirts</a>
+  <a href="hoodies.html">Hoodies and Sweatshirts</a>
+  <a href="shorts.html">Shorts</a>
+  <a href="suits.html">Suits</a>
+  <a href="pants.html">Pants</a>
+  <a href="jackets.html">Jackets</a>
+  <a href="accessories.html">Accessories</a>
+</div>
+    </section>
+  </main>
+</body>
+</html>
